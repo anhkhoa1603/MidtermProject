@@ -17,7 +17,7 @@ public class Mole {
     public enum State {GOINUP, GOINDOWN, UNDERGROUND, STUNNED};
     public State state = State.GOINUP;
     public float currentHeight = 0f;
-    public float speed = 2f;
+    public float speed = 1f;
 
     public float timeUnderGround = 0f;
     public float maxTimeUnderGround = 0.8f;
@@ -80,7 +80,8 @@ public class Mole {
 
     public boolean handleTouch (float touchX, float touchY) {
         if ((touchX>=position.x) && touchX<=(position.x+width) && (touchY>=position.y) && touchY<=(position.y+currentHeight)) {
-            stunSprite.setPosition(position.x + width - (stunSprite.getWidth()/2), position.y + currentHeight - (stunSprite.getHeight()/2));
+            stunSprite.setPosition(position.x + width - (stunSprite.getWidth()/2),
+                position.y + currentHeight - (stunSprite.getHeight()/2));
             state = State.STUNNED;
             GameManager.hitSound.play();
             return true;

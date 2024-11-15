@@ -33,3 +33,15 @@ Useful Gradle tasks and flags:
 
 Note that most tasks that are not specific to a single project can be run with `name:` prefix, where the `name` should be replaced with the ID of a specific project.
 For example, `core:clean` removes `build` folder only from the `core` project.
+
+## How to Run
+
+To run the game on the desktop platform, use the following Gradle command:
+```shell
+./gradlew lwjgl3:run
+```
+
+To build the project, use:
+```shell
+./gradlew build
+```

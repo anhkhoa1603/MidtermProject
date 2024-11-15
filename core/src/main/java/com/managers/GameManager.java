@@ -11,26 +11,17 @@ import com.managers.TextManager;
 
 public class GameManager {
     public static Sound hitSound;
-    static Array<Mole>moles; // array of the mole
+    static Array<Mole>moles;
     static Texture moleTexture;
     static Texture stunTexture;
 
-    static Texture backgroundTexture; // texture image for background
-    static Sprite backgroundSprite; //sprite for background
+    static Texture backgroundTexture;
+    static Sprite backgroundSprite;
 
-    static Texture holeBackTexture; // texture image for background
-    static Texture holeFrontTexture; // texture image for background
+    static Texture holeBackTexture;
+    static Texture holeFrontTexture;
 
-    static Array<Sprite> holeSprites; // array of hole sprite
-
-    private static float MOLE_RESIZE_FACTER = 2000f;
-
-    private static float MOLE_VERT_POSITION_FACTER = 3f;
-    private static float MOLE1_HORIZ_POSITION_FACTER = 5.8f;
-    private static float MOLE2_HORIZ_POSITION_FACTER = 2.4f;
-    private static float MOLE3_HORIZ_POSITION_FACTER = 1.5f;
-
-    private static float HOLE_RESIZE_FACTER = 1100f;
+    static Array<Sprite> holeSprites;
 
     public static int score;
 
@@ -54,10 +45,12 @@ public class GameManager {
         holeFrontTexture = new Texture(Gdx.files.internal("data/HoleFront.png"));
         holeSprites = new Array<>();
 
+        float MOLE_RESIZE_FACTER = 2000f;
+        float HOLE_RESIZE_FACTER = 1100f;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 Sprite sprite1 = new Sprite(holeBackTexture);
-                sprite1.setSize(sprite1.getWidth()*(width/HOLE_RESIZE_FACTER), sprite1.getHeight()*(height/MOLE_RESIZE_FACTER));
+                sprite1.setSize(sprite1.getWidth()*(width/ HOLE_RESIZE_FACTER), sprite1.getHeight()*(height/ MOLE_RESIZE_FACTER));
                 sprite1.setPosition(width*(j+1)/4f - sprite1.getWidth()/2, height*(i+1)/4.4f - sprite1.getHeight());
                 holeSprites.add(sprite1);
             }
@@ -88,7 +81,7 @@ public class GameManager {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 Sprite sprite2 = new Sprite(holeFrontTexture);
-                sprite2.setSize(sprite2.getWidth()*(width/HOLE_RESIZE_FACTER), sprite2.getHeight()*(height/MOLE_RESIZE_FACTER));
+                sprite2.setSize(sprite2.getWidth()*(width/ HOLE_RESIZE_FACTER), sprite2.getHeight()*(height/ MOLE_RESIZE_FACTER));
                 sprite2.setPosition(width*(j+1)/4f - sprite2.getWidth()/2, height*(i+1)/4.4f - sprite2.getHeight());
                 holeSprites.add(sprite2);
             }
